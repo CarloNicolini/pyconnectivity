@@ -28,7 +28,8 @@ __all__ = ["reverse", "issymmetric", "rescaleMatrix",
            "threshold_matrix_garlaschelli"]
 
 # http://mikegrouchy.com/blog/2012/05/be-pythonic-__init__py.html
-from pyconnectivity import nx, np
+import networkx as nx
+import numpy as np
 import scipy.io
 import copy
 

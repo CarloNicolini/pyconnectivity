@@ -22,8 +22,11 @@ __author__ = 'Carlo Nicolini <carlo.nicolini@iit.it>'
 __all__ = ['plot_measures', 'draw_network',
            'draw_network_3D', 'load_node_positions_2D','visualize_communities']
 
-from pyconnectivity import nx, plt, np, copy, logging, statistic
-
+import networkx as nx
+import numpy as np
+import logging, statistic
+import copy
+import matplotlib.pyplot as plt
 
 def plot_measures(averageThresholdMeasures, dataLabel, colors=['r', 'b']):
     '''Plot all the graph measures vs threshold and density'''

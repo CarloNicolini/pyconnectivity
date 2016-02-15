@@ -24,8 +24,13 @@ __all__ = [
 
 # Back import from base __init__ file in __all__
 # http://mikegrouchy.com/blog/2012/05/be-pythonic-__init__py.html
-from pyconnectivity import nx, np, utils, community
-from pyconnectivity.utils import is_weighted as is_weighted
+
+import networkx as nx
+import numpy as np
+import logging, statistic
+import copy
+import utils
+from utils import is_weighted as is_weighted
 
 
 def compute_global_measure(inputMatrix, weightedGraph=False, minThreshold=-1.0,
