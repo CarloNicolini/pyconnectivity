@@ -15,14 +15,14 @@ import utils
 nodespos = visualization.load_node_positions_2D('anatomical_coordinates_symmetrized_LR_N50.txt')
 nodeslist = [n.rstrip() for n in open('nodes.txt')]
 
-func_b6_mat = np.loadtxt('funct_b6.csv',delimiter=',')
-func_btbr_mat = np.loadtxt('funct_btbr.csv',delimiter=',')
+func_b6_mat = np.loadtxt('fz_b6.csv',delimiter=',')
+func_btbr_mat = np.loadtxt('fz_btbr.csv',delimiter=',')
 struct_b6_mat = np.loadtxt('struct_b6.csv',delimiter=',')
 struct_btbr_mat = np.loadtxt('struct_btbr.csv',delimiter=',')
 
 # Make thresholding operations
-func_b6_graph = nx.from_numpy_matrix(utils.threshold_matrix_absolute(func_b6_mat,0.28))
-func_btbr_graph = nx.from_numpy_matrix(utils.threshold_matrix_absolute(func_btbr_mat,0.28))
+func_b6_graph = nx.from_numpy_matrix(utils.threshold_matrix_absolute(func_b6_mat,0.3))
+func_btbr_graph = nx.from_numpy_matrix(utils.threshold_matrix_absolute(func_btbr_mat,0.3))
 struct_b6_graph = nx.from_numpy_matrix(utils.threshold_matrix_absolute(struct_b6_mat,5))
 struct_btbr_graph = nx.from_numpy_matrix(utils.threshold_matrix_absolute(struct_btbr_mat,5))
 
@@ -46,7 +46,7 @@ visualization.draw_network(func_b6_graph,dict(zip(func_b6_graph.nodes(),50*[0]))
                                  color_map=plt.cm.binary,
                                  font_size=25,
                              edges_width=0.5,
-                             output_file_name='func_b6_028.pdf')
+                             output_file_name='fz_b6_030.pdf')
 
 visualization.draw_network(func_btbr_graph,dict(zip(func_btbr_graph.nodes(),50*[0])),
                                  node_pos='anatomical_coordinates_symmetrized_LR_N50.txt',
@@ -57,7 +57,7 @@ visualization.draw_network(func_btbr_graph,dict(zip(func_btbr_graph.nodes(),50*[
                                  color_map=plt.cm.binary,
                                  font_size=25,
                                  edges_width=0.5,
-                                 output_file_name='func_btbr_028.pdf')
+                                 output_file_name='fz_btbr_030.pdf')
 
 visualization.draw_network(struct_b6_graph,dict(zip(struct_b6_graph.nodes(),50*[0])),
                                  node_pos='anatomical_coordinates_symmetrized_LR_N50.txt',
